@@ -33,7 +33,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-        at: ~/repo
+          at: ~/repo
       - run: yarn start
 
 
