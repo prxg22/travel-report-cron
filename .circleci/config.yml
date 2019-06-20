@@ -42,16 +42,6 @@ jobs:
           root: ~/repo
           paths: .
 
-  config-puppeteer:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - puppeteer/install
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
-
   report:
     <<: *defaults
     steps:
@@ -72,12 +62,10 @@ workflows:
     #             - master
     jobs:
       - config
-      - config-puppeteer:
-          requires:
-            - config
       - config-firebase:
           requires:
             - config
+      - puppeteer/install
       - report:
           requires:
             - config-firebase
