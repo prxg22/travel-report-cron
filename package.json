@@ -6,9 +6,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon --inspect index.js"
+    "start": "nodemon --inspect index.js",
+    "report": "node index.js"
   },
   "dependencies": {
+    "dotenv": "^8.0.0",
     "firebase-admin": "7.1.x",
     "node-schedule": "^1.3.2",
     "travel-report": "^1.0.x",
