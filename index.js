@@ -5,11 +5,11 @@ const { Travel, Report } = tr(admin, { ref: '/chats/{chat_id}', params: { chat_i
 
 const config = {
   apiKey: process.env.API_KEY,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId, 
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
 }
 
 admin.initializeApp(config)
