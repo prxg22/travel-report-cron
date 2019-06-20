@@ -41,7 +41,7 @@ workflows:
   cron-job:
     triggers:
       - schedule:
-          cron: "0,15,30,45 * * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
