@@ -2,15 +2,8 @@ const tr = require('travel-report')
 const trc = require('travel-report-crawler')
 const admin = require('firebase-admin')
 const dotenv = require('dotenv').config()
+
 const { Travel, Report } = tr(admin, { ref: '/chats/{chat_id}', params: { chat_id: '' }})
-
-const config = {
-  apiKey: process.env.API_KEY,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-}
-
-admin.initializeApp(config)
 
 const createReport = async (chat_id, travel_id, travel) => {
   try {
@@ -53,6 +46,14 @@ const run = async () => {
 }
 
 try {
+  const serviceAccount = require('./serviceAccount.json')
+
+  const config = {
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: process.env.DATABASE_URL,
+  }
+
+  admin.initializeApp(config)
   run()
 } catch(e) {
   console.error(e)

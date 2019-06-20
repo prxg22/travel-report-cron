@@ -29,6 +29,14 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+
+  config-firebase:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: echo $FIREBASE_SERVICE_ACCOUNT | base64 -D -o serviceAccount.json
+
   report:
     <<: *defaults
     steps:
@@ -40,15 +48,18 @@ jobs:
 workflows:
   version: 2
   cron-job:
-    triggers:
-      - schedule:
-          cron: "0,30 * * * *"
-          filters:
-            branches:
-              only:
-                - master
+    # triggers:
+    #   - schedule:
+    #       cron: "0,30 * * * *"
+    #       filters:
+    #         branches:
+    #           only:
+    #             - master
     jobs:
       - config
-      - report:
+      - config-firebase:
           requires:
             - config
+      - report:
+          requires:
+            - config-firebase
