@@ -17,6 +17,7 @@
     "travel-report-crawler": "^1.0.x"
   },
   "devDependencies": {
+    "firebase-tools": "^7.0.1",
     "nodemon": "^1.18.x"
   }
 }

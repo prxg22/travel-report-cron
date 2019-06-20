@@ -34,7 +34,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: yarn start
+      - run: yarn report
 
 
 workflows:
@@ -42,7 +42,7 @@ workflows:
   cron-job:
     triggers:
       - schedule:
-          cron: "* * * * *"
+          cron: "0,30 * * * *"
           filters:
             branches:
               only:
