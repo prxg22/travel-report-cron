@@ -35,7 +35,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: echo $FIREBASE_SERVICE_ACCOUNT | base64 -D -o serviceAccount.json
+      - run: echo $FIREBASE_SERVICE_ACCOUNT | base64 --decode -o serviceAccount.json
 
   report:
     <<: *defaults
