@@ -2554,10 +2554,10 @@ touch@^3.1.0:
   dependencies:
     nopt "~1.0.10"
 
-travel-report-crawler@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/travel-report-crawler/-/travel-report-crawler-1.0.3.tgz#b08d77e99b0870274e932ff3c1f17cc8a9d551f5"
-  integrity sha512-tuiEiZFOQQMUTnqACPF15Oa3UqpNEe1qmwR/sEWyF7sBoFo7Kgys/ufkkTjvKwOQOjVCY1dqJuZc0h6+U1cXAg==
+travel-report-crawler@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/travel-report-crawler/-/travel-report-crawler-1.2.0.tgz#a0f1382ef9f4236f0356b4fc1d50e028e83bd5da"
+  integrity sha512-kpsyc+DqtK3mRUIQ0QR3OvIzrMYiN4S8FvVSSTbvLBMlRyTiIVFwRaW8gvGUNGF/muWpAwjavJZ0RdCpxMqZiA==
   dependencies:
     puppeteer "^1.14.0"
 
