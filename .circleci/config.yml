@@ -62,9 +62,9 @@ workflows:
     #             - master
     jobs:
       - config
-      - config-firebase:
-          requires:
-            - config
+      # - config-firebase:
+      #     requires:
+      #       - config
       - puppeteer/install
       - report:
           requires:
