@@ -10,12 +10,12 @@
     "report": "node index.js"
   },
   "dependencies": {
-    "dotenv": "8.0.x",
-    "firebase-admin": "7.1.x",
-    "travel-report": "1.0.x",
-    "travel-report-crawler": "1.0.x"
+    "dotenv": "8.0.0",
+    "firebase-admin": "8.2.0",
+    "travel-report": "1.0.14",
+    "travel-report-crawler": "1.0.3"
   },
   "devDependencies": {
-    "nodemon": "1.18.x"
+    "nodemon": "1.19.1"
   }
 }
