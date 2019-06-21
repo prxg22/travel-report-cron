@@ -1,7 +1,5 @@
 # Use the latest 2.1 version of CircleCI pipeline processing engine, see https://circleci.com/docs/2.0/configuration-reference/
 version: 2.1
-orbs:
-  puppeteer: threetreeslight/puppeteer@0.1.2
 
 defaults: &defaults
   working_directory: ~/repo
@@ -42,6 +40,23 @@ jobs:
           root: ~/repo
           paths: .
 
+  config-puppeteer:
+    <<: *defaults
+    steps:
+      steps:
+    - run:
+        name: Install Headless Chrome dependencies
+        command: |
+          sudo apt-get install -yq \
+          gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+          libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
+          libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
+          libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates \
+          fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+   - persist_to_workspace:
+      root: ~/repo
+      paths: .
+
   report:
     <<: *defaults
     steps:
@@ -62,10 +77,12 @@ workflows:
     #             - master
     jobs:
       - config
-      # - config-firebase:
-      #     requires:
-      #       - config
-      - puppeteer/install
+      - config-firebase:
+          requires:
+            - config
+      - config-puppeteer:
+          requires:
+            - config
       - report:
           requires:
             - config-firebase
