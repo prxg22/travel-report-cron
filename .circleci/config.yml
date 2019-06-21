@@ -85,4 +85,4 @@ workflows:
       - report:
           requires:
             - config-firebase
-            - config-puppeteer
+            # - config-puppeteer
