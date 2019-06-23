@@ -42,7 +42,6 @@ const run = async () => {
     .once('value')
 
   await reportTravel(snap)
-  process.exit()
 }
 
 try {
@@ -54,7 +53,13 @@ try {
   }
 
   admin.initializeApp(config)
+  const exit = (n) => process.exit(n)
   run()
+    .then(exit)
+    .catch((e) => {
+      console.error(e)
+      exit(1)
+    })
 } catch(e) {
   console.error(e)
   process.exit(1)

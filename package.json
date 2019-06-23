@@ -13,7 +13,7 @@
     "dotenv": "8.0.0",
     "firebase-admin": "8.2.0",
     "travel-report": "1.0.14",
-    "travel-report-crawler": "1.2.0"
+    "travel-report-crawler": "1.2.1"
   },
   "devDependencies": {
     "nodemon": "1.19.1"
