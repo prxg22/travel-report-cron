@@ -51,9 +51,9 @@ jobs:
 workflows:
   version: 2
   cron-job:
-    # triggers:
+    triggers:
       - schedule:
-          # cron: "0 0,2,4,6,8,12,16,20 * * *"
+          cron: "0 0,2,4,6,8,12,16,20 * * *"
           filters:
             branches:
               only:
